@@ -1,0 +1,28 @@
+{
+	// Place your CP-2024 workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	"Add description comment header to you current file.": {
+		"prefix": "hc",
+		"body": [
+			"$BLOCK_COMMENT_START",
+			"--- ---",
+			"time: $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND$CURRENT_TIMEZONE_OFFSET",
+			"date: $CURRENT_DAY_NAME_SHORT $CURRENT_DATE, $CURRENT_MONTH_NAME_SHORT $CURRENT_YEAR",
+			"author: ${3:Mostafijul Islam}",
+			"problem: ${1:link}",
+			"",
+			"*INPUT*",
+			"- ${2:???}",
+			"",
+			"*QUESTION*",
+			"- ${0:???}",
+			"--- ---",
+			"$BLOCK_COMMENT_END"
+		],
+		"description": "Log output to console"
+	}
+}
