@@ -16,7 +16,7 @@ run: build
 
 build: 
 	mkdir -p $(output_dir)
-	$(compiler) $(name).cpp -o $(output_path)
+	$(compiler) $(path)$(name).cpp -o $(output_path)
 
 clean: 
 	rm -rf $(output_dir)

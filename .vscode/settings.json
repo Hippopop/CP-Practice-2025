@@ -1,5 +1,5 @@
 {
     "code-runner.executorMap": {
-        "cpp": "make name=$fileNameWithoutExt",
+        "cpp": "make name=$fileNameWithoutExt path=$dir",
     }
 }
