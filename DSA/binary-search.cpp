@@ -3,13 +3,13 @@
 #include <iostream>
 
 using namespace std;
-
+int limit = 1000;
 int length = 12; // NOTE: Change the static array length with this too!!
 int *randomArrayGenerator() {
   srand(time(0));
   static int array[12]; // NOTE: Static Array!
   for (int i = 0; i < length; i++)
-    array[i] = rand() % 1000;
+    array[i] = rand() % limit;
   return array;
 }
 
@@ -32,8 +32,7 @@ int main() {
   selectionSort(array);
   printArray(array);
 
-  //   int target = array[rand() % length];
-  int target = 500;
+  int target = (rand() % 2) ? (rand() % limit) : array[rand() % length];
   cout << "The result of searching " << target << " is: "
        << (binarySearch(array, target, 0, length - 1) ? "Found!" : "Not Found!")
        << endl;
