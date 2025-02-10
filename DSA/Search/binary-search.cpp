@@ -3,6 +3,7 @@
 #include <iostream>
 
 using namespace std;
+
 int limit = 1000;
 int length = 12; // NOTE: Change the static array length with this too!!
 int *randomArrayGenerator() {
@@ -26,6 +27,7 @@ bool binarySearch(int array[], int target, int left, int right);
 
 int main() {
   int *array = randomArrayGenerator();
+  
   printArray(array);
 
   // Start Process!!
