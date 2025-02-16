@@ -22,21 +22,22 @@ void printArray(int array[]) {
 }
 
 // Functions!!
-void selectionSort(int *array);
+void countingSort(int *array);
 
 int main() {
   int *array = randomArrayGenerator();
   printArray(array);
 
   // Start Process!!
-  selectionSort(array);
+  countingSort(array);
   cout << "Sorted ";
   printArray(array);
+  cout << endl << endl << endl;
 
   return 0;
 }
 
-void selectionSort(int array[]) {
+void countingSort(int array[]) {
   for (int i = 0; i < (length - 1); i++) {
     int l_i = i;
     for (int j = i + 1; j < length; j++) {

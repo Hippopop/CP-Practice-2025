@@ -22,14 +22,21 @@ void printArray(int array[]) {
 }
 
 // Functions!!
-void selectionSort(int *array);
+void countingSort(int array[], int min, int max);
 
 int main() {
   int *array = randomArrayGenerator();
   printArray(array);
 
   // Start Process!!
-  selectionSort(array);
+  int min = array[0], max = array[0];
+  for (int x = 0; x < length; x++) {
+    if (array[x] > max)
+      max = array[x];
+    if (array[x] < min)
+      min = array[x];
+  }
+  countingSort(array, min, max);
   cout << "Sorted ";
   printArray(array);
   cout << endl << endl << endl;
@@ -37,14 +44,20 @@ int main() {
   return 0;
 }
 
-void selectionSort(int array[]) {
-  for (int i = 0; i < (length - 1); i++) {
-    int l_i = i;
-    for (int j = i + 1; j < length; j++) {
-      if (array[l_i] > array[j]) {
-        l_i = j;
-      }
+void countingSort(int array[], int min, int max) {
+  int store[max + 1];
+  for (int i = 0; i <= max; i++)
+    store[i] = 0;
+
+  for (int i = 0; i < length; i++)
+    store[array[i]]++;
+
+  int index = 0;
+  for (int i = 0; i <= max; i++) {
+    int val = store[i];
+    for (int j = 0; j < val; j++) {
+      array[index] = i;
+      index++;
     }
-    swap(array[i], array[l_i]);
   }
 }

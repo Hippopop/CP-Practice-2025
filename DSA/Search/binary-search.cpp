@@ -22,16 +22,16 @@ void printArray(int array[]) {
 }
 
 // Functions!!
-void selectionSort(int *array);
+void bubbleSort(int *array);
 bool binarySearch(int array[], int target, int left, int right);
 
 int main() {
   int *array = randomArrayGenerator();
-  
+
   printArray(array);
 
   // Start Process!!
-  selectionSort(array);
+  bubbleSort(array);
   printArray(array);
 
   int target = (rand() % 2) ? (rand() % limit) : array[rand() % length];
@@ -39,10 +39,11 @@ int main() {
        << (binarySearch(array, target, 0, length - 1) ? "Found!" : "Not Found!")
        << endl;
 
+  cout << endl << endl << endl;
   return 0;
 }
 
-void selectionSort(int array[]) {
+void bubbleSort(int array[]) {
   for (int i = 0; i < (length - 1); i++) {
     int l_i = i;
     for (int j = i + 1; j < length; j++) {
