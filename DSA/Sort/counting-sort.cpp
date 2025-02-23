@@ -39,8 +39,8 @@ int main() {
   countingSort(array, min, max);
   cout << "Sorted ";
   printArray(array);
+  
   cout << endl << endl << endl;
-
   return 0;
 }
 
