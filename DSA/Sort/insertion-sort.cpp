@@ -22,7 +22,7 @@ void printArray(int array[]) {
 }
 
 // Functions!!
-void insertionSort(int array[], int min, int max);
+void insertionSort(int array[]);
 
 int main() {
   int *array = randomArrayGenerator();
@@ -36,7 +36,7 @@ int main() {
     if (array[x] < min)
       min = array[x];
   }
-  insertionSort(array, min, max);
+  insertionSort(array);
   cout << "Sorted ";
   printArray(array);
 
@@ -44,20 +44,14 @@ int main() {
   return 0;
 }
 
-void insertionSort(int array[], int min, int max) {
-  int store[max + 1];
-  for (int i = 0; i <= max; i++)
-    store[i] = 0;
-
-  for (int i = 0; i < length; i++)
-    store[array[i]]++;
-
-  int index = 0;
-  for (int i = 0; i <= max; i++) {
-    int val = store[i];
-    for (int j = 0; j < val; j++) {
-      array[index] = i;
-      index++;
+void insertionSort(int array[]) {
+  for (int step = 1; step < length; step++) {
+    int key = array[step];
+    int j = step - 1;
+    while (j >= 0 && key < array[j]) {
+      array[j + 1] = array[j];
+      --j;
     }
+    array[j + 1] = key;
   }
 }
