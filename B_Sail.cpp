@@ -20,58 +20,40 @@ using namespace std;
 void solution() {
   long long int t, x, y, tx, ty;
   cin >> t >> x >> y >> tx >> ty;
-  bool l = tx<x, r = tx> x, up = ty<y, down = ty> y;
-
-  //   cout << "X: " << x << " Y: " << y << " TX: " << tx << " TY: " << ty <<
-  //   endl; cout << "Left: " << l << " Right: " << r << " UP: " << up << "
-  //   DOWN: " << down
-  //        << endl;
 
   string d;
   cin >> d;
 
-  for (int i = 1; i <= t; i++) {
-    switch (d[i - 1]) {
+  for (int i = 0; i <= t; i++) {
+    if (tx == x && ty == y) {
+      cout << i;
+      return;
+    }
+
+    switch (d[i]) {
     case 'E': {
-      if (r)
+      if (tx > x)
         x++;
-      if (tx == x && ty == y) {
-        cout << i;
-        return;
-      }
       break;
     };
     case 'W': {
-      if (l)
+      if (tx < x)
         x--;
-      if (tx == x && ty == y) {
-        cout << i;
-        return;
-      }
       break;
     };
     case 'N': {
-      if (down)
+      if (ty > y)
         y++;
-      if (tx == x && ty == y) {
-        cout << i;
-        return;
-      }
       break;
     };
     case 'S': {
-      if (up)
+      if (ty < y)
         y--;
-      if (tx == x && ty == y) {
-        cout << i;
-        return;
-      }
       break;
     };
     }
   }
 
-  
   cout << -1;
 }
 
