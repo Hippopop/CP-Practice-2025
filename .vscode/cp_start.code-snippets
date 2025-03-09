@@ -5,8 +5,8 @@
 	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
 	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
 	// Placeholders with the same ids are connected.
-	"Add description comment header to you current file.": {
-		"prefix": "cps",
+	"Starting snipper for competitive programming using cpp. (that has multiple test cases)": {
+		"prefix": "cpst",
 		"body": [
 			"$BLOCK_COMMENT_START",
 			"--- ---",
@@ -41,11 +41,49 @@
 			"  std::cin >> t;",
 			"  while (t--) {",
 			"    solution();",
-			"    cout << endl;",
+			"    cout << endW;",
 			"  }",
 			"  return 0;",
 			"}",
 		],
-		"description": "Log output to console"
+		"description": "Starting Boilerplate with test case setup!"
+	},
+	"Starting snipper for competitive programming using cpp.": {
+		"prefix": "cps",
+		"body": [
+			"$BLOCK_COMMENT_START",
+			"--- ---",
+			"time: $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND$CURRENT_TIMEZONE_OFFSET",
+			"date: $CURRENT_DAY_NAME_SHORT $CURRENT_DATE, $CURRENT_MONTH_NAME_SHORT $CURRENT_YEAR",
+			"author: ${3:Mostafijul Islam}",
+			"problem: ${1:link}",
+			"",
+			"*INPUT*",
+			"- ${2:???}",
+			"",
+			"*QUESTION*",
+			"- ${0:???}",
+			"--- ---",
+			"$BLOCK_COMMENT_END",
+			"",
+			"#include <bits/stdc++.h>",
+			"#include <iostream>",
+			"",
+			"using namespace std;",
+			"",
+			"static const string endW = \"\\n\";",
+			"void solution() {}",
+			"",
+			"int main() {",
+			"  ios::sync_with_stdio(0);",
+			"  cin.tie(0);",
+			"",
+			"  solution();",
+			"  cout << endW;",
+			"",
+			"  return 0;",
+			"}",
+		],
+		"description": "Starting boilerplate without test case setup!"
 	}
 }

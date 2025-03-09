@@ -12,7 +12,7 @@ all: run
 
 run: build
 	clear
-	./$(output_path)
+	./$(output_path) < input.txt > output.txt
 
 build: 
 	mkdir -p $(output_dir)
