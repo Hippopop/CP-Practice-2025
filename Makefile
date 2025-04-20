@@ -8,7 +8,7 @@ output_path = $(output_dir)/$(name).out
 
 
 # Actual configuration!
-all: run
+all: run_with_files
 
 run_with_files: build
 	clear
