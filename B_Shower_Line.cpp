@@ -22,7 +22,7 @@ using namespace std;
 
 static const string endW = "\n";
 
-long long int countTotal(vector<vector<long long int> > arr, vector<int> order) {
+long long int countTotal(vector<vector<long long int>> arr, vector<int> order) {
   int t = 0;
   t += (arr[order[0]][order[1]] + arr[order[1]][order[0]]);
   t += (arr[order[2]][order[3]] + arr[order[3]][order[2]]);
@@ -35,7 +35,7 @@ long long int countTotal(vector<vector<long long int> > arr, vector<int> order) 
 
 void solution() {
   vector<int> option;
-  vector<vector<long long int> > arr;
+  vector<vector<long long int>> arr(5);
 
   for (int i = 0; i < 5; i++) {
     option.push_back(i);
@@ -46,9 +46,6 @@ void solution() {
     }
   }
 
-  // for (int i = 0; i < 5; i++)
-  //   sort(arr[i].begin(), arr[i].end());
-  // sort(arr.begin(), arr.end());
   long long int max = LONG_MIN;
   do {
     long long int total = countTotal(arr, option);
@@ -63,8 +60,6 @@ void solution() {
 int main() {
   ios::sync_with_stdio(0);
   cin.tie(0);
-
   solution();
-
   return 0;
 }
