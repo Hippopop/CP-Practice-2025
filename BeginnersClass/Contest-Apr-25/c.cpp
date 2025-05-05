@@ -1,40 +1,29 @@
 #include <iostream>
-#include <map>
-#include <set>
+#include <unordered_set>
+#include <vector>
 
 using namespace std;
-
-map<long long int, set<long long int>> history;
 
 static const string endW = "\n";
 void solution() {
   long long int m, n;
   cin >> n >> m;
   long long int arr[n];
-  set<long long int> unique;
   for (int i = 0; i < n; i++) {
     cin >> arr[i];
-    unique.insert(arr[i]);
   }
-  history[0] = unique;
 
-  for (int i = 0; i < m; i++) {
+  vector<long long int> history(n, 0);
+  unordered_set<long long int> found;
+  for (int i = n - 1; i >= 0; i--) {
+    found.insert(arr[i]);
+    history[i] = found.size();
+  }
+
+  while (m--) {
     long long int pos;
     cin >> pos;
-    set<long long int> u;
-    for (int i = pos - 1; i < n; i++) {
-      if (history.count(i) > 0) {
-        u.merge(history[i]);
-        cout << "Prev(" << i + 1 << ") : " << history[i].size() << endW;
-        break;
-      }
-      u.insert(arr[i]);
-    }
-
-    cout << "Pos: " << pos << " || Size: " << u.size() << endW;
-
-    history[pos - 1] = u;
-    cout << u.size() << endW;
+    cout << history[pos - 1] << endW;
   }
 };
 
