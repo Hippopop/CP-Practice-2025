@@ -1,0 +1,1 @@
+prices.size() - (i + 1)
