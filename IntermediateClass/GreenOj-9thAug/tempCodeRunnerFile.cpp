@@ -1,0 +1,1 @@
+to_string(arr[0]) + " " + ans
