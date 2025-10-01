@@ -39,8 +39,6 @@ struct Table {
 vector<MenuItem> menu;
 OrderNode *orderHead = nullptr;
 vector<OrderNode *> orderHistory;
-// stack<int> orderStack;
-// queue<int> orderQueue;
 vector<vector<pair<int, int>>> tableGraph;
 map<int, Table> tables;
 int orderCounter = 1001;
@@ -300,26 +298,6 @@ void freeTable(int tableId) {
     tables[tableId].isOccupied = false;
 }
 
-/* void addOrder(const string &name, const vector<OrderedItem> &items,
-              int members) {
-  int tableId = allocateTable(members);
-  if (tableId == -1) {
-    systemMessage =
-        "No available table for " + to_string(members) + " members.";
-    return;
-  }
-
-  OrderNode *node = new OrderNode{
-      orderCounter++, name.empty() ? "Anonymous" : name,
-      items,          tableId,
-      members,        orderHead,
-  };
-  orderHead = node;
-  // orderStack.push(node->orderId);
-  // orderQueue.push(node->orderId);
-  systemMessage = "Order placed! Table " + to_string(tableId);
-} */
-
 void addOrder(const string &name, const vector<OrderedItem> &items, int mem) {
   // inventory check
   for (auto &oi : items)
@@ -340,28 +318,6 @@ void addOrder(const string &name, const vector<OrderedItem> &items, int mem) {
   orderHead = nd;
   systemMessage = "Order placed, Table" + to_string(tid);
 }
-
-/* void deleteOrder(int orderId) {
-  OrderNode *temp = orderHead;
-  OrderNode *prev = nullptr;
-  while (temp && temp->orderId != orderId) {
-    prev = temp;
-    temp = temp->next;
-  }
-  if (!temp) {
-    systemMessage = "Order not found.";
-    return;
-  }
-  freeTable(temp->tableId);
-  orderHistory.push_back(new OrderNode(*temp));
-  if (prev)
-    prev->next = temp->next;
-  else
-    orderHead = temp->next;
-  delete temp;
-
-  systemMessage = "Order canceled.";
-} */
 
 void deleteOrder(int orderId) {
   OrderNode *temp = orderHead;
